@@ -33,6 +33,13 @@
         }
       );
 
+      overlays.default = f: p: {
+        spicePkgs = import ./pkgs {
+          inherit self;
+          pkgs = f;
+        };
+      };
+
       formatter = eachSystem (pkgs: pkgs.nixfmt);
 
       devShells = eachSystem (pkgs: {

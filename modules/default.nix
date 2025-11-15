@@ -6,7 +6,7 @@ builtins.listToAttrs (
       value =
         let
           imports = [
-            (import ./common.nix self)
+            ./common.nix
             ./${x}.nix
           ];
         in

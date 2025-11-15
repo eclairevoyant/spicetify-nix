@@ -14,7 +14,7 @@ let
         (lib.evalModules {
           specialArgs = { inherit pkgs; };
           modules = [
-            (import ../modules/options.nix self)
+            ../modules/options.nix
             ../modules/linuxOpts.nix
           ];
         })

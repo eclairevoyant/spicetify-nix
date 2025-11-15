@@ -1,4 +1,3 @@
-self:
 {
   lib,
   pkgs,
@@ -6,8 +5,6 @@ self:
   ...
 }:
 let
-  spicePkgs = self.packages or self.legacyPackages.${pkgs.stdenv.system};
-
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
       freeformType = lib.types.attrsOf lib.types.anything;
@@ -58,7 +55,7 @@ in
 
     theme = lib.mkOption {
       description = "";
-      inherit (spicePkgs.themes) default;
+      inherit (pkgs.spicePkgs.themes) default;
 
       type = lib.types.submodule {
         freeformType = lib.types.attrsOf lib.types.anything;
@@ -332,7 +329,7 @@ in
     {
       spicedSpotify =
         let
-          spicedSpotify' = spicePkgs.spicetifyBuilder {
+          spicedSpotify' = pkgs.spicePkgs.spicetifyBuilder {
             spotify = config.spotifyPackage;
             spicetify-cli = config.spicetifyPackage;
             extensions = allExtensions;

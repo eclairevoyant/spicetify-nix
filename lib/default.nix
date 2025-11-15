@@ -8,7 +8,7 @@
           inherit pkgs;
         };
         modules = [
-          (import ../modules/options.nix self)
+          ../modules/options.nix
           module
         ]
         ++ lib.optional pkgs.stdenv.hostPlatform.isLinux ../modules/linuxOpts.nix;
