@@ -9,7 +9,7 @@
     type = lib.types.submoduleWith {
       specialArgs = { inherit pkgs; };
       modules = [
-        (import ./options.nix self)
+        ./options.nix
       ]
       ++ lib.optional pkgs.stdenv.hostPlatform.isLinux ./linuxOpts.nix;
     };

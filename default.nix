@@ -10,5 +10,5 @@ pkgs.lib.fix (
       inherit (pkgs) lib;
     };
   }
-  // import ./modules self
+  // import ./modules
 )

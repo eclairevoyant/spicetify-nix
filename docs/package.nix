@@ -4,8 +4,6 @@
   importNpmLock,
   nixosOptionsDoc,
   pkgs,
-
-  self,
 }:
 let
   optionsDoc = nixosOptionsDoc {

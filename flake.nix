@@ -20,7 +20,7 @@
       eachSystem = f: lib.genAttrs (import systems) (s: f nixpkgs.legacyPackages.${s});
     in
     {
-      lib = import ./lib { inherit lib self; };
+      lib = import ./lib { inherit lib; };
 
       legacyPackages = eachSystem (
         pkgs:
@@ -57,5 +57,5 @@
         };
       });
     }
-    // import ./modules self;
+    // import ./modules;
 }

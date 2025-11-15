@@ -1,4 +1,3 @@
-self:
 builtins.listToAttrs (
   map
     (x: {

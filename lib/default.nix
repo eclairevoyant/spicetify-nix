@@ -1,4 +1,4 @@
-{ self, lib }:
+{ lib }:
 {
   mkSpicetify =
     pkgs: module:

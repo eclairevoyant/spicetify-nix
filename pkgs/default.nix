@@ -2,7 +2,7 @@
   pkgs ? import <nixpkgs> { },
   unfreePkgs ? pkgs,
   ...
-}@attrs:
+}:
 let
   inherit (pkgs) lib;
   json = lib.importJSON ./generated.json;
@@ -14,7 +14,7 @@ lib.fix (
     callPackages = lib.callPackagesWith (pkgs // self);
   in
   {
-    docs = callPackage ../docs/package.nix { inherit (attrs) self; };
+    docs = callPackage ../docs/package.nix { };
     inherit (json) snippets;
 
     fetcher = callPackage ./fetcher { };
@@ -37,7 +37,6 @@ lib.fix (
       let
         spiceLib = import ../lib {
           inherit lib;
-          inherit (attrs) self;
         };
       in
       spiceLib.mkSpicetify unfreePkgs {
