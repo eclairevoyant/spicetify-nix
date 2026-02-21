@@ -16,6 +16,7 @@ builtins.listToAttrs (
         };
     })
     [
+      "hjem"
       "nixos"
       "homeManager"
       "darwin"
